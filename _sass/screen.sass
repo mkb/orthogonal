@@ -1,19 +1,36 @@
 @import compass/reset
 @import compass/css3
- 
+
+$bg: #000000
+$text: #FCFCC6
+$alt: #2E3648
+$link: #92977C
+
+
+
+h1 
+  font-size:  200%
+  
 .example
+  color: $text
+  a
+    color: #CCCCCC
   +display-box
   +box-orient(horizontal)
   +box-align(stretch)
-  +box-direction(reverse)
-  height: 200px
+  height: 1500px
   width: 100%
-  .content, .sidebar
-    padding: 20px
   .content
+    padding: 20px
     +box-flex(4)
-    background-color: #C5C1B4
+    background-color: $alt
   .sidebar
-    +box-flex(1)
-    background-color: #375F99
+    width: 200px
+    .capstone
+      align: right
+    background-color: $bg
     margin-right: 1px
+    p
+      padding: 20px
+
+
