@@ -7,6 +7,9 @@ $alt: #2E3648
 $link: #92977C
 
 
+body
+  background-color: $text
+  color: $bg
 
 h1 
   font-size:  200%
@@ -21,15 +24,16 @@ h1
   height: 1500px
   width: 100%
   .content
-    padding: 20px
     +box-flex(4)
+    padding: 20px
     background-color: $alt
   .sidebar
     width: 200px
     .capstone
       align: right
     background-color: $bg
-    margin-right: 1px
+    margin-left: 1px
+    margin-right: .5px
     p
       padding: 20px
 
