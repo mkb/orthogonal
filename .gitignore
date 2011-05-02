@@ -1,2 +1,4 @@
-vendor
+_vendor
 _site
+.sass-cache
+

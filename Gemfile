@@ -4,3 +4,5 @@ gem 'jekyll'
 gem 'rdiscount'
 gem 'RedCloth'
 gem 'haml'
+gem 'compass'
+
