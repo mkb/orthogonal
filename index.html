@@ -4,7 +4,7 @@ title: Jekyll Base
 ---
 
 <div class="posts">
-  <ul>
+  <ul class="discs">
     {% for post in site.posts %}
     <li>
       <span>{{ post.date | date: "%B %e, %Y" }}</span> 
@@ -12,4 +12,5 @@ title: Jekyll Base
     </li>
     {% endfor %}
   </ul>
+  <img src="/img/disc.png"></img>
 </div>

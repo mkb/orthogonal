@@ -1,11 +1,11 @@
 @import compass/reset
 @import compass/css3
+@import compass/typography/lists/bullets
 
 $bg: #000000
 $text: #FCFCC6
 $alt: #2E3648
 $link: #92977C
-
 
 body
   font-family: Garamond, serif
@@ -14,8 +14,11 @@ body
 
 h1 
   font-size:  200%
-  
-.example
+
+ul.discs
+  +pretty-bullets("disc.png", 25px, 25px)
+
+.container
   color: $text
   a
     color: #CCCCCC

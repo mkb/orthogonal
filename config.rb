@@ -1,6 +1,7 @@
-http_path = "/"
-css_dir = "_site/stylesheets"
-sass_dir = "_sass"
+http_path = '/'
+images_dir = 'img'
+css_dir = 'stylesheets'
+sass_dir = '_sass'
 output_style = :expanded
 
 
