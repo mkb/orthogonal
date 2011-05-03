@@ -5,6 +5,7 @@
     <title>
       {{ page.title }}
     </title>
+    <link href="{{ site.url }}/atom.xml" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -13,9 +14,10 @@
         <div class='header'>
           <a href="/"><img src="/img/orthogonal.png" alt="orthogonal.org"></a>          
         </div>
-        <div class='nav'>Thing | Another | More</div>
+{% comment %}        <div class='nav'>Thing | Another | More</div>{% endcomment %}
         <div class='meat'>{{ content }}</div>
       </div>
+
       <div class='sidebar'>
         <img height='200' width='200' src="/img/IMG_0251.JPG"/>
         <p>I am Michael Brodhead.  This is my website.  There are
@@ -33,7 +35,6 @@
             </tr>
           </table>
         </div>
-
       </div>
 
       

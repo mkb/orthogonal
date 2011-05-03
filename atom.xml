@@ -10,7 +10,7 @@
   <id>http://orthogonal.org/</id>
   <author>
     <name>Michael Brodhead</name>
-    <email></email>
+    {% comment %}<email></email>{% endcomment %}
   </author>
   {% for post in site.posts %}
   <entry>
