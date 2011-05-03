@@ -17,6 +17,11 @@ h1
 
 ul.discs
   +pretty-bullets("disc.png", 25px, 25px)
+  li
+    +background-origin(content-box)
+    line-height: 30px
+    text-indent: 25px
+    // padding-top: 20px
 
 .container
   color: $text
@@ -27,7 +32,7 @@ ul.discs
   +box-align(stretch)
   height: 1500px
   width: 100%
-  .content
+  .main
     +box-flex(4)
     padding: 20px
     background-color: $alt
@@ -35,6 +40,8 @@ ul.discs
     .nav
       border-top: 1px solid
       border-bottom: 1px solid
+    .meat
+      padding: 20px
   .sidebar
     width: 200px
     .capstone
