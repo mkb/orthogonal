@@ -5,8 +5,7 @@ title: Desert island discs
 
 Suppose you are about to be stranded on a desert island for a long time.  You get to bring 10 albums (vinyl or CD) with you.  What ten do you bring?
 
-Here are mine:
-
+## Here are mine
 1. The Beastie Boys, "Paul's Boutique" - This is an incredible album with lots of subtle detail.  I notice some new nuance every time I put it on.
 2. John Coltrane, "John Coltrane Quintet" - Not my favorite 'Trane, but maybe the one I can repeat the most.
 3. Steely Dan, "Gaucho" - Oh, to think I once equated this with elevator music!  Sublime.
@@ -18,5 +17,6 @@ Here are mine:
 9. Kraftwerk, "Computer World" - Made quite an impression on me just as my love of computers was burgeoning.
 10. The Cult, "Beyond Good and Evil" - Their varied catalog made this a tough choice, but my list was short on hard rock, so here it is.
 
-Runners up:  Musik, Back in Black, Praise the Fallen, Axis: Bold as Love.
+##Runners up
+Musik, Back in Black, Praise the Fallen, Axis: Bold as Love.
 
