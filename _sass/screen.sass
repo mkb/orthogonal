@@ -2,31 +2,25 @@
 @import compass/css3
 @import compass/typography/lists/bullets
 
-$bg: #000000
+$bg: #2E3648
+$alt: #000000
 $text: #FCFCC6
-$alt: #2E3648
-$link: #92977C
+$link: #92977C + #333333
 
 body
   font-family: Garamond, serif
   background-color: $text
   color: $bg
-
+  
 h1 
   font-size:  200%
 
-ul.discs
-  +pretty-bullets("disc.png", 25px, 25px)
-  li
-    +background-origin(content-box)
-    line-height: 30px
-    text-indent: 25px
-    // padding-top: 20px
 
 .container
   color: $text
   a
-    color: #CCCCCC
+    text-decoration: none
+    color: $link
   +display-box
   +box-orient(horizontal)
   +box-align(stretch)
@@ -35,7 +29,7 @@ ul.discs
   .main
     +box-flex(4)
     padding: 20px
-    background-color: $alt
+    background-color: $bg
     .header
     .nav
       border-top: 1px solid
@@ -46,7 +40,7 @@ ul.discs
     width: 200px
     .capstone
       align: right
-    background-color: $bg
+    background-color: $alt
     margin-left: .5px
     margin-right: 0
     align: center
@@ -54,32 +48,32 @@ ul.discs
       align: left
       padding: 20px
 
+ul.discs
+  +pretty-bullets("disc.png", 25px, 25px)
+  li
+    +background-origin(content-box)
+    line-height: 30px
+    text-indent: 25px
+  li:hover
+    background-color: $bg - #111
+    color: $text + #222
+    a
+      color: $link + #222
+    // padding-top: 20px
+
 
 #flickr_badge_source_txt
   padding: 0
   font: 11px Arial, Helvetica, Sans serif
-  color: #FCFCC6
-#flickr_badge_icon
-  display: block !important
-  margin: 0 !important
-  border: 1px solid rgb(0, 0, 0) !important
-#flickr_icon_td
-  padding: 0 5px 0 0 !important
 .flickr_badge_image
   text-align: center !important
 .flickr_badge_image img
   border: 1px solid black !important
 #flickr_badge_uber_wrapper
   width: 150px
-#flickr_www
-  display: block
-  text-align: center
-  padding: 0 10px 0 10px !important
-  font: 11px Arial, Helvetica, Sans serif !important
-  color: #3993ff !important
 #flickr_badge_wrapper
-  background-color: #2e3648
-  border: solid 1px #000000
+  background-color: $bg
+  border: solid 1px $alt
 #flickr_badge_source
   padding: 0 !important
   font: 11px Arial, Helvetica, Sans serif !important
