@@ -15,7 +15,7 @@ Future tasks, in no particular order:
 * Consolidate Compass & Jekyll watchers.
 * Autotest integration.
 * Spend countless hours playing with the typography until I don't hate it.
-* Proper 404 page.
+* Proper 404 page. √
 * Links to relevant sites.
 * Feedburner integration.
 * Separate atom feeds for updates and new content.

@@ -32,6 +32,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   compass
+  fssm
   haml
   jekyll
   rb-fsevent

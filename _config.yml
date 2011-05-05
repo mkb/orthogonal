@@ -7,5 +7,7 @@ exclude:
   vendor
   config.rb
   Rakefile
+include:
+  .htaccess
 rdiscount
   extensions: [smart]
