@@ -6,5 +6,6 @@ exclude:
   Gemfile.lock
   vendor
   config.rb
+  Rakefile
 rdiscount
   extensions: [smart]
