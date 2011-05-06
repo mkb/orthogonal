@@ -6,29 +6,14 @@ $bg: #2E3648
 $alt: #000000
 $text: #FCFCC6
 $link: #92977C + #333333
+$line: 1.6em
 
 body
-  font-family: Garamond, serif
   background-color: $text
   color: $bg
+  // font-family: "tenby-six-1","tenby-six-2"
+  font-family: Garamond, serif
   
-h1 
-  font-size: 210%
-  font-weight: bold
-  text-align: center
-  margin-top: 0.8em
-h2
-  margin-top: 1em
-  margin-bottom: 0.8em
-  font-size: 150% 
-  border-bottom: 1px solid
-  
-ul
-  list-style-type: circle
-ol
-  list-style-type: decimal
-li
-  margin: .5em 0
 
 
 .container
@@ -44,17 +29,44 @@ li
   .main
     +box-flex(4)
     padding: 20px
+    // letter-spacing: 0.05em
+    // word-spacing: 0.1em
     background-color: $bg
     .header
     .nav
       border-top: 1px solid
       border-bottom: 1px solid
     .meat
-      line-height: 1.8em
+      line-height: $line
       padding: 20px
       font-size: 14pt
-      p
-        padding-bottom: 2em
+      max-width: 560px
+    p
+      margin-bottom: $line
+    blockquote
+      background-color: $alt
+      @include opacity(0.8)
+      padding: 40px
+      margin-bottom: $line
+    h1 
+      font-size: 180%
+      font-weight: bold
+      text-align: center
+      margin-top: 0.3em
+      margin-bottom: 0.5em
+    h2
+      margin-top: 1em
+      margin-bottom: 0.8em
+      font-size: 150% 
+      border-bottom: 1px solid
+
+    ul
+      list-style-type: circle
+    ol
+      list-style-type: decimal
+    li
+      margin: .5em 0
+
   .sidebar
     width: 200px
     .capstone

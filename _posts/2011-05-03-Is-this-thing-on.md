@@ -11,7 +11,7 @@ Much work remains to make the site look good, but it seems to more or less funct
 Future tasks, in no particular order:
 
 * HTML/CSS/Atom validation.
-* Automated upload.
+* Automated upload. √
 * Consolidate Compass & Jekyll watchers.
 * Autotest integration.
 * Spend countless hours playing with the typography until I don't hate it.

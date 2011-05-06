@@ -11,3 +11,4 @@ include:
   .htaccess
 rdiscount
   extensions: [smart]
+  
