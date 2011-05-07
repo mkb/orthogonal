@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require './_tasks/validate'
 
 ssh_host = 'buckelew.joyent.us' 
 remote_root = '/users/home/mkb/domains/orthogonal.org/web/public'
@@ -24,4 +25,5 @@ task :watch do
     create {|base, relative| rebuild_site(relative)}
   end
 end
+
 

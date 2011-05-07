@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/alexdunae/w3c_validators.git
+  revision: c8646e28976979dfac9ff7b61e2ecd6bd46fab9f
+  specs:
+    w3c_validators (1.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -21,6 +27,7 @@ GEM
     liquid (2.2.2)
     maruku (0.6.0)
       syntax (>= 1.0.0)
+    nokogiri (1.4.4)
     rb-fsevent (0.4.0)
     rdiscount (1.6.8)
     sass (3.1.1)
@@ -35,5 +42,7 @@ DEPENDENCIES
   fssm
   haml
   jekyll
+  nokogiri
   rb-fsevent
   rdiscount
+  w3c_validators (= 1.1.1)!
