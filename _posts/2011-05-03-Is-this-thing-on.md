@@ -10,12 +10,18 @@ Much work remains to make the site look good, but it seems to more or less funct
 
 Future tasks, in no particular order:
 
+## Done
+* Automated upload.
+* Proper 404 page.
+
+## Todo
 * HTML/CSS/Atom validation.
-* Automated upload. √
+* Next-prev
+* Posts complete or excerpted on main page.
+* Post list to sidebar
 * Consolidate Compass & Jekyll watchers.
 * Autotest integration.
 * Spend countless hours playing with the typography until I don't hate it.
-* Proper 404 page. √
 * Links to relevant sites.
 * Feedburner integration.
 * Separate atom feeds for updates and new content.

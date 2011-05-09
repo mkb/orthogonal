@@ -7,6 +7,7 @@ exclude:
   vendor
   config.rb
   Rakefile
+  TODO
 include:
   .htaccess
 rdiscount
