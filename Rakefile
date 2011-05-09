@@ -9,6 +9,14 @@ def rebuild_site(relative)
   puts ">>> Change Detected to: #{relative} >> Update Complete"
 end
 
+def site_files
+  FileList['_site/**/*'].find_all {|f| File.file? f}
+end
+
+desc "Clean generated site files"
+task :clean do
+  FileUtils.rm site_files
+end
 
 task :deploy do
   puts "*** Deploying the site ***"

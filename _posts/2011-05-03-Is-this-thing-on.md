@@ -31,6 +31,8 @@ Future tasks, in no particular order:
 * Re-enable CSS compression.
 * Mobile friendly.
 * Look through old blog posts for content worth including.
+* yslow
+* query string cache fu
 
 That is all I have to say at this time.
 

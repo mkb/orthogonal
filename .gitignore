@@ -1,5 +1,6 @@
 _vendor
 _site
 .sass-cache
-stylesheets
+css
+
 
