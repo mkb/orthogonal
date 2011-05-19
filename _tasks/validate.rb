@@ -3,37 +3,41 @@ require 'w3c_validators'
 include W3CValidators
 require 'pp'
 
-desc "W3C validation of the output folder"
-task :validate do
-  # perform a setup of all our variables
-  setup
-  validate '.html'
-  validate '.css'
-end
 
-task :gug do
-  setup
-  @validator = MarkupValidator.new
-  @validator.set_debug!(true)
-  file = File.dirname(__FILE__) + '/../_site/index.html'
-  results = @validator.validate_file(file)
-  
-  if results.errors.length > 0
-    results.errors.each do |err|
-      puts "#{err.pretty_inspect}"
+namespace :validate do
+  desc "W3C validation of the output folder"
+  task :all do
+    # perform a setup of all our variables
+    setup
+    validate_type '.html'
+    validate_type '.css'
+  end
+
+  task :gug do
+    setup
+    @validator = MarkupValidator.new
+    @validator.set_debug!(true)
+    file = @config['destination'] + '/index.html'
+    results = @validator.validate_file(file)
+
+    if results.errors.length > 0
+      results.errors.each do |err|
+        puts "#{err.pretty_inspect}"
+      end
+    else
+      puts 'Valid!'
     end
-  else
-    puts 'Valid!'
-  end
 
-  puts "#{results.errors.length} errors."
+    puts "#{results.errors.length} errors."
 
-  puts 'Debugging messages'
+    puts 'Debugging messages'
 
-  results.debug_messages.each do |key, value|
-    puts "#{key}: #{value}"
+    results.debug_messages.each do |key, value|
+      puts "#{key}: #{value}"
+    end
   end
 end
+
 
 private
 
@@ -43,27 +47,26 @@ def red(text); colorize(text, "\e[31m"); end
 def green(text); colorize(text, "\e[32m"); end
 
 # Reads the yaml with the configuration of the project to get always the correct
-# output_dir and initializes the validator
+# output_dir
 def setup
-  @config = Jekyll.configuration({})
+  @config ||= Jekyll.configuration({})
 end
 
 
 # Method to validate calling to the w3c_validators methods
-def validate ext
+def validate_type(ext)
   @validator = (ext == ".css" ? CSSValidator.new : MarkupValidator.new )
   
   files(@config['destination'], true, ext).each do |file|
     results = @validator.validate_file(file)
     if results.errors.length > 0
-        results.errors.each do |err|
-          puts "\t #{file} => #{red(err)}"
-        end
-      else
-        puts "\t #{file} => #{green('Valid!')}"
+      results.errors.each do |err|
+        puts "\t #{file} => #{red(err)}"
       end
-  end
-  
+    else
+      puts "\t #{file} => #{green('Valid!')}"
+    end
+  end  
 end
 
 # From nanoc
