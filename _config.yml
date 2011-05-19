@@ -1,6 +1,8 @@
 auto: true
+server: false
+destination: public
 markdown: rdiscount
-permalink: /:year/:month/:day/:title
+permalink: /:year/:month/:day/:title/
 exclude:
   Gemfile
   Gemfile.lock

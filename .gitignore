@@ -2,5 +2,6 @@ _vendor
 _site
 .sass-cache
 css
+public
 
 
