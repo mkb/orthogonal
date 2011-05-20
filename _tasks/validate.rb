@@ -1,40 +1,28 @@
 require 'jekyll'
 require 'w3c_validators'
 include W3CValidators
-require 'pp'
 
+task :validate => ['validate:default']
 
 namespace :validate do
   desc "W3C validation of the output folder"
-  task :all do
+  task :all => [:setup] do
     # perform a setup of all our variables
-    setup
     validate_type '.html'
     validate_type '.css'
   end
-
-  task :gug do
-    setup
-    @validator = MarkupValidator.new
-    @validator.set_debug!(true)
-    file = @config['destination'] + '/index.html'
-    results = @validator.validate_file(file)
-
-    if results.errors.length > 0
-      results.errors.each do |err|
-        puts "#{err.pretty_inspect}"
-      end
-    else
-      puts 'Valid!'
-    end
-
-    puts "#{results.errors.length} errors."
-
-    puts 'Debugging messages'
-
-    results.debug_messages.each do |key, value|
-      puts "#{key}: #{value}"
-    end
+  
+  task :default => [:setup] do
+    results = validate_file(File.new("public/index.html"))
+    report(results)
+  end
+  
+# Reads the yaml with the configuration of the project to get always the correct
+# output_dir
+  task :setup do
+    @config ||= Jekyll.configuration({})
+    @css_validator = CSSValidator.new
+    @markup_validator = MarkupValidator.new
   end
 end
 
@@ -46,36 +34,34 @@ def colorize(text, color_code); "#{color_code}#{text}\e[0m"; end
 def red(text); colorize(text, "\e[31m"); end
 def green(text); colorize(text, "\e[32m"); end
 
-# Reads the yaml with the configuration of the project to get always the correct
-# output_dir
-def setup
-  @config ||= Jekyll.configuration({})
-end
-
 
 # Method to validate calling to the w3c_validators methods
 def validate_type(ext)
-  @validator = (ext == ".css" ? CSSValidator.new : MarkupValidator.new )
-  
   files(@config['destination'], true, ext).each do |file|
-    results = @validator.validate_file(file)
-    if results.errors.length > 0
-      results.errors.each do |err|
-        puts "\t #{file} => #{red(err)}"
-      end
-    else
-      puts "\t #{file} => #{green('Valid!')}"
-    end
+    results = validate_file(file)
+    report(results)
   end  
 end
 
-# From nanoc
-# # Returns a list of all files in +dir+, ignoring any unwanted files (files
-# that end with '~', '.orig', '.rej' or '.bak').
-#
-# +recursively+:: When +true+, finds files in +dir+ as well as its
-#                 subdirectories; when +false+, only searches +dir+
-#                 itself.
+def report(results)
+  if results.errors.length > 0
+    results.errors.each do |err|
+      puts "\t #{file.path} => #{red(err)}"
+    end
+  else
+    puts "\t #{file.path} => #{green('Valid!')}"
+  end
+end
+
+def validate_file(file)
+  if file.path.end_with? '.css'
+    validator = @css_validator
+  else
+    validator = @markup_validator
+  end
+  
+  validator.validate_file(file)
+end
 
 def files(dir, recursively, ext = '')
   glob = File.join([dir] + (recursively ? [ "**", "*#{ext}" ] : [ "*#{ext}" ]))
