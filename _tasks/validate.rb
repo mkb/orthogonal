@@ -39,22 +39,35 @@ def purple(text); colorize(text, "\e[35m"); end
 def cyan(text); colorize(text, "\e[36m"); end
 def cracker(text); colorize(text, "\e[37m"); end
 
-
 def validate_type(ext)
   files(@config['destination'], ext).each do |file|
     results = validate_file(file)
-    report(results)
+    report(results, file)
   end  
 end
 
+def files(dir, match)
+  glob = File.join(dir, "**", match)
+  Dir[glob].reject { |f| File.directory?(f) or f =~ /(~|\.orig|\.rej|\.bak)$/ }
+end
+
 def report(results, filename)
+  return if results.nil?
+  
   err_count = results.errors.length
-  if err_count > 0
+  warn_count = results.warnings.length
+  if err_count > 0 or warn_count > 0
     if err_count == 1
-      puts "  #{cyan(filename)}:  #{results.errors.length} error"
-    else
-      puts "  #{cyan(filename)}:  #{results.errors.length} errors"
+      puts "  #{cyan(filename)}:  #{err_count} error"
+    elsif err_count > 1
+      puts "  #{cyan(filename)}:  #{err_count} errors"
     end
+    if warn_count == 1
+      puts "  #{cyan(filename)}:  #{warn_count} warning"
+    elsif warn_count > 1
+      puts "  #{cyan(filename)}:  #{warn_count} warnings"
+    end
+
     results.errors.each do |err|
       emit_message(err)
     end
@@ -76,14 +89,10 @@ def validate_file(filename)
     validator = @markup_validator
   elsif filename.end_with? '.css'
     validator = @css_validator
+    return
   else
     validator = @markup_validator
   end
   
   validator.validate_file(filename)
-end
-
-def files(dir, match)
-  glob = File.join(dir, "**", match)
-  Dir[glob].reject { |f| File.directory?(f) or f =~ /(~|\.orig|\.rej|\.bak)$/ }
 end
