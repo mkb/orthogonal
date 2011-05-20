@@ -5,6 +5,11 @@ require './_tasks/validate'
 ssh_host = 'buckelew.joyent.us' 
 remote_root = '/users/home/mkb/domains/orthogonal.org/web/public'
 
+desc "Quick and dirty watch until nice one is ready."
+task :dumbwatch do
+  system 'multitail -cT vt100 -l "bundle exec compass watch"  -ev "regeneration: 10 files changed" -l "bundle exec jekyll --auto"'
+end
+
 def rebuild_site(relative)
   puts ">>> Change Detected to: #{relative} >> Update Complete"
 end
