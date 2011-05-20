@@ -15,8 +15,6 @@ body
   // font-family: "tenby-six-1","tenby-six-2"
   // font-family: Garamond, serif
 
-
-
 .container
   color: $text
   a
@@ -49,6 +47,26 @@ body
       @include opacity(0.8)
       padding: 40px
       margin-bottom: $line
+      p:first-child
+        text-indent: 1.6em
+      p:last-child
+        margin-bottom: 0
+    blockquote:before, blockquote:after
+      color: $link
+      text-indent: 0
+      display: block
+      line-height: .2em
+      font-size: 3em
+      width: 50px    
+    blockquote:before
+      content: '\201C'
+      content: open-quote
+      margin: 0.2em 0.2em -0.8em 0.1em
+    blockquote:after
+      float: right
+      content: '\201D'
+      content: close-quote
+      margin: -0.2em -0.8em -2em 0em
     h1 
       font-size: 180%
       font-weight: bold
@@ -60,7 +78,6 @@ body
       margin-bottom: 0.8em
       font-size: 150% 
       border-bottom: 1px solid
-
     ul
       list-style-type: circle
     ol
@@ -94,7 +111,6 @@ ul.discs
     a
       color: $link + #222
 
-
 .flickr_badge_image
   text-align: center
 #flickr_badge_image1 img
@@ -108,8 +124,7 @@ ul.discs
     padding: 5px
 #flickr_badge_wrapper
   background-color: $bg
-  border: solid 1px $alt
-  
+  border: solid 1px $alt 
 #flickr_badge_source
   padding: 0
   font: 11px Arial, Helvetica, Sans serif
