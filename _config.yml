@@ -1,6 +1,6 @@
-auto: true
+auto: false
 server: false
-destination: public
+destination: _site
 markdown: rdiscount
 permalink: /:year/:month/:day/:title/
 exclude:
@@ -9,6 +9,7 @@ exclude:
   vendor
   config.rb
   Rakefile
+  public
 include:
   .htaccess
 rdiscount
