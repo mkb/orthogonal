@@ -8,21 +8,22 @@ namespace :validate do
   desc "W3C validation of the output folder"
   task :all => [:setup] do
     # perform a setup of all our variables
-    validate_type '.html'
-    validate_type '.css'
+    validate_type '*.html'
+    validate_type '*.css'
+    validate_type 'atom.xml'
   end
   
   task :default => [:setup] do
-    results = validate_file(File.new("public/index.html"))
-    report(results)
+    filename = "public/index.html"
+    results = validate_file(filename)
+    report(results, filename)
   end
   
-# Reads the yaml with the configuration of the project to get always the correct
-# output_dir
   task :setup do
-    @config ||= Jekyll.configuration({})
+    @config = Jekyll.configuration({})
     @css_validator = CSSValidator.new
     @markup_validator = MarkupValidator.new
+    @feed_validator = FeedValidator.new
   end
 end
 
@@ -33,37 +34,54 @@ private
 def colorize(text, color_code); "#{color_code}#{text}\e[0m"; end
 def red(text); colorize(text, "\e[31m"); end
 def green(text); colorize(text, "\e[32m"); end
+def cyan(text); colorize(text, "\e[36m"); end
 
 
 # Method to validate calling to the w3c_validators methods
 def validate_type(ext)
-  files(@config['destination'], true, ext).each do |file|
+  files(@config['destination'], ext).each do |file|
     results = validate_file(file)
     report(results)
   end  
 end
 
-def report(results)
-  if results.errors.length > 0
+def report(results, filename)
+  err_count = results.errors.length
+  if err_count > 0
+    if err_count == 1
+      puts "  #{cyan(filename)}:  #{results.errors.length} error"
+    else
+      puts "  #{cyan(filename)}:  #{results.errors.length} errors"
+    end
     results.errors.each do |err|
-      puts "\t #{file.path} => #{red(err)}"
+      emit_message(err)
+    end
+    results.warnings.each do |warn|
+      emit_message(warn)
     end
   else
-    puts "\t #{file.path} => #{green('Valid!')}"
+    puts "  #{cyan(filename)} => #{green('Valid!')}"
   end
 end
 
-def validate_file(file)
-  if file.path.end_with? '.css'
+def emit_message(message)
+  output = "    - #{message.type}; line #{message.line}:  #{message.message}"
+  puts (message.type == :error) ? red(output) : yellow(output)
+end
+
+def validate_file(filename)
+  if filename.end_with? 'atom.xml'
+    validator = @markup_validator
+  elsif filename.end_with? '.css'
     validator = @css_validator
   else
     validator = @markup_validator
   end
   
-  validator.validate_file(file)
+  validator.validate_file(filename)
 end
 
-def files(dir, recursively, ext = '')
-  glob = File.join([dir] + (recursively ? [ "**", "*#{ext}" ] : [ "*#{ext}" ]))
+def files(dir, match)
+  glob = File.join(dir, "**", match)
   Dir[glob].reject { |f| File.directory?(f) or f =~ /(~|\.orig|\.rej|\.bak)$/ }
 end
