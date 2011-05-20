@@ -7,16 +7,20 @@ task :validate => ['validate:default']
 namespace :validate do
   desc "W3C validation of the output folder"
   task :all => [:setup] do
-    # perform a setup of all our variables
     validate_type '*.html'
     validate_type '*.css'
     validate_type 'atom.xml'
   end
   
-  task :default => [:setup] do
+  task :index => [:setup] do
     filename = "public/index.html"
     results = validate_file(filename)
     report(results, filename)
+  end
+  
+  task :file, [:filename] => [:setup] do |t, args|
+    results = validate_file(args.filename)
+    report(results, args.filename)
   end
   
   task :setup do
@@ -51,22 +55,20 @@ def files(dir, match)
   Dir[glob].reject { |f| File.directory?(f) or f =~ /(~|\.orig|\.rej|\.bak)$/ }
 end
 
+class String
+  def dumb_pluralize(quantity)
+    (quantity != 1) ? "#{self}s" : self
+  end
+end
+
 def report(results, filename)
   return if results.nil?
   
   err_count = results.errors.length
   warn_count = results.warnings.length
   if err_count > 0 or warn_count > 0
-    if err_count == 1
-      puts "  #{cyan(filename)}:  #{err_count} error"
-    elsif err_count > 1
-      puts "  #{cyan(filename)}:  #{err_count} errors"
-    end
-    if warn_count == 1
-      puts "  #{cyan(filename)}:  #{warn_count} warning"
-    elsif warn_count > 1
-      puts "  #{cyan(filename)}:  #{warn_count} warnings"
-    end
+    print "  #{cyan(filename)}:  #{err_count} #{'error'.dumb_pluralize(err_count)}, "
+    puts "#{warn_count} #{'warning'.dumb_pluralize(warn_count)}"
 
     results.errors.each do |err|
       emit_message(err)
