@@ -3,10 +3,10 @@ layout: post
 title: Rules of thumb
 ---
 
-* When you think, "Hey, I'll add some more feeds to my feed reader," go check your todo list instead.
 * When the items you are cooking start to smell like food, they are nearly done.
 * If you apply your brakes on the highway and the cars around you aren't doing the same, you were likely driving too quickly or reacting too slowly.
 * The better the hotel, the lower the likelihood of free WiFi in the rooms.
+* When you think, "Hey, I'll add some more feeds to my feed reader," go check your todo list instead.
 * If there is a phone in the bathroom, you are probably in a very nice hotel.
 * If an establishment advertises flavored coffee, their coffee is bad.
 * If you are offered a glass of something bubbly while you wait but are not in an eating or drinking establishment, you are about to pay too much for whatever service is on offer.

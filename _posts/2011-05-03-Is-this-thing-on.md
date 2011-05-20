@@ -33,6 +33,8 @@ Future tasks, in no particular order:
 * Look through old blog posts for content worth including.
 * yslow
 * query string cache fu
+* less stupid flickr integration
+* add last-modified date to posts
 
 That is all I have to say at this time.
 
