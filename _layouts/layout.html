@@ -37,27 +37,25 @@
       <img height="200" width="200" src="/img/IMG_0251.JPG" alt="[]"/>
       <p>I am Michael Brodhead.  This is my website.  There are
         many others like it, but this one is mine.</p>
-      <div id="flickr_badge_uber_wrapper">
-        <table id="flickr_badge_wrapper">
-          <script type="text/javascript" src="http://bit.ly/kyOBHD">
-          </script>
-          <tr>
-            <td id="flickr_badge_source">
-              Go to
-              <a href="http://www.flickr.com/photos/thewayofthegun/">TheWayOfTheGun's photostream</a>
-            </td>
-          </tr>
-        </table>
+      
+      <div id="flickr_uber">
+        <div id="flickr_images"></div>
+        <p>See <a href="http://flickr.com/photos/TheWayOfTheGun">more photos.</a></p>
       </div>
     </div>
     
     <footer>      
     </footer>
 
-   {% comment %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
     <script>window.jQuery || document.write("<script src='js/jquery-1.6.0.min.js'>\x3C/script>")</script>
-   {% endcomment %}
+    <script type="text/javascript" src="/js/jquery.flickrush.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('#flickr_images').flickrush({id:'47176885@N00' });
+      });
+   </script>
+
   </div>
 </body>
 </html>
