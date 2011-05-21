@@ -13,9 +13,11 @@ Future tasks, in no particular order:
 ## Done
 * Automated upload.
 * Proper 404 page.
+* less stupid flickr integration
+* HTML/Atom validation.
 
 ## Todo
-* HTML/CSS/Atom validation.
+* CSS validation
 * growl kvetch when i break something
 * Next-prev
 * Posts complete or excerpted on main page.
@@ -34,7 +36,6 @@ Future tasks, in no particular order:
 * Look through old blog posts for content worth including.
 * yslow
 * query string cache fu
-* less stupid flickr integration
 * add last-modified date to posts
 
 That is all I have to say at this time.
