@@ -7,7 +7,7 @@ remote_root = '/users/home/mkb/domains/orthogonal.org/web/public'
 
 desc "Quick and dirty watch until nice one is ready."
 task :dumbwatch do
-  system 'multitail -cT vt100 -l "bundle exec compass watch"  -ev "regeneration: 10 files changed" -l "bundle exec jekyll --auto"'
+  system 'multitail -Z ,,inverse -m 0 -cT ANSI -wh 15 -n 52 -l "bundle exec compass watch" -m 0 -n 52 -ev "regeneration: 10 files changed" -l "bundle exec jekyll --auto"'
 end
 
 def rebuild_site(relative)
