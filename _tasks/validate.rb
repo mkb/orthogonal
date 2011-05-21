@@ -2,7 +2,7 @@ require 'jekyll'
 require 'w3c_validators'
 include W3CValidators
 
-task :validate => ['validate:default']
+task :validate => ['validate:all']
 
 namespace :validate do
   desc "W3C validation of the output folder"
@@ -88,7 +88,7 @@ end
 
 def validate_file(filename)
   if filename.end_with? 'atom.xml'
-    validator = @markup_validator
+    validator = @feed_validator
   elsif filename.end_with? '.css'
     validator = @css_validator
     return

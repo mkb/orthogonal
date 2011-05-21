@@ -16,6 +16,7 @@ Future tasks, in no particular order:
 
 ## Todo
 * HTML/CSS/Atom validation.
+* growl kvetch when i break something
 * Next-prev
 * Posts complete or excerpted on main page.
 * Post list to sidebar
