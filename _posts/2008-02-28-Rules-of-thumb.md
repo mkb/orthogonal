@@ -2,6 +2,8 @@
 layout: post
 title: Rules of thumb
 ---
+Quoth [Wikipedia](http://en.wikipedia.org/wiki/Rule_of_thumb):
+>A rule of thumb is a principle with broad application that is not intended to be strictly accurate or reliable for every situation. It is an easily learned and easily applied procedure for approximately calculating or recalling some value, or for making some determination.
 
 * When the items you are cooking start to smell like food, they are nearly done.
 * If you apply your brakes on the highway and the cars around you aren't doing the same, you were likely driving too quickly or reacting too slowly.

@@ -101,17 +101,24 @@ body
       align: left
       padding: 20px
 
-ul.discs
-  +pretty-bullets("disc.png", 25px, 25px)
-  li
-    +background-origin(content-box)
-    line-height: 30px
-    text-indent: 25px
-  li:hover
-    background-color: $bg - #111
-    color: $text + #222
-    a
-      color: $link + #222
+.posts
+  .post_brief      
+    .excerpt
+      margin-bottom: 0
+    .link_to_full
+      display: inline-block
+      font-size: 75%
+      vertical-align: top
+      margin-left: 1em
+      a:hover
+        background-color: $bg - #333
+        color: $link + #222
+
+li:hover
+  background-color: $bg - #111
+  color: $text + #222
+  a
+    color: $link + #222
 
 #flickr_uber 
   font: 10px Arial, Helvetica, Sans serif
@@ -120,6 +127,7 @@ ul.discs
     padding: 5px
   padding: 10px 10px 7px 10px
   background-color: $bg
+  +border-radius(5px)
   margin: 0px auto
   #flickr_images
     img

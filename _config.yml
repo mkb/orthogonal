@@ -2,7 +2,7 @@ auto: false
 server: false
 destination: _site
 markdown: rdiscount
-permalink: /:year/:month/:day/:title/
+permalink: /:title/
 exclude:
   Gemfile
   Gemfile.lock

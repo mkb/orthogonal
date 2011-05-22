@@ -15,12 +15,13 @@ Future tasks, in no particular order:
 * Proper 404 page.
 * less stupid flickr integration
 * HTML/Atom validation.
+* Posts excerpted on main page.
 
 ## Todo
+* sidebar post links
 * CSS validation
 * growl kvetch when i break something
 * Next-prev
-* Posts complete or excerpted on main page.
 * Post list to sidebar
 * Consolidate Compass & Jekyll watchers.
 * Autotest integration.
@@ -37,6 +38,7 @@ Future tasks, in no particular order:
 * yslow
 * query string cache fu
 * add last-modified date to posts
+* page footer with new/update/render info
 
 That is all I have to say at this time.
 

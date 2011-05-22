@@ -2,14 +2,20 @@
 layout: layout
 title: orthogonal.org -- home
 ---
-
 <div class="posts">
-  <ul class="discs">
-    {% for post in site.posts %}
-    <li>
-      <span>{{ post.date | date: "%B %e, %Y" }}</span> 
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
+  {% for post in site.posts limit: 5 %}
+    <div class="post_brief">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a> 
+        <span>({{ post.date | date:"%Y-%m-%d" }})</span>
+      </h2>
+      <p class="excerpt">
+        {% if post.excerpt %}
+          {{ post.excerpt }}
+        {% else %}
+          {{ post.content | strip_html | truncatewords: 50 }}
+        {% endif %}
+        <span class="link_to_full"><a href="{{ post.url }}">[More]</a></span>
+      </p> 
+    </div>
+  {% endfor %}
 </div>
