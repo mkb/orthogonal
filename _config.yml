@@ -1,6 +1,7 @@
 auto: false
 server: false
 destination: _site
+plugins: _plugins
 markdown: rdiscount
 permalink: /:title/
 exclude:

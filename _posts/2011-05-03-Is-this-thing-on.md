@@ -16,6 +16,7 @@ Future tasks, in no particular order:
 * less stupid flickr integration
 * HTML/Atom validation.
 * Posts excerpted on main page.
+* page footer with update/render info
 
 ## Todo
 * sidebar post links
@@ -38,7 +39,6 @@ Future tasks, in no particular order:
 * yslow
 * query string cache fu
 * add last-modified date to posts
-* page footer with new/update/render info
 
 That is all I have to say at this time.
 
