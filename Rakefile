@@ -25,7 +25,7 @@ end
 
 task :deploy do
   puts "*** Deploying the site ***"
-  system("rsync -avzh --delete _site/ #{ssh_host}:#{remote_root}")
+  system("rsync -avzh --chmod=g-w,o+r --delete _site/ #{ssh_host}:#{remote_root}")
 end
 
 desc "Watch the site and regenerate when it changes"

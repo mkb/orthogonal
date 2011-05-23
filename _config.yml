@@ -10,6 +10,7 @@ exclude:
   config.rb
   Rakefile
   public
+  tmp
 include:
   .htaccess
 rdiscount
