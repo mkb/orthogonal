@@ -10,3 +10,6 @@ The following words rock:
 * Obstreperous
 * Petulant
 * Homunculus
+* Bindle
+
+
