@@ -39,6 +39,8 @@ Future tasks, in no particular order:
 * yslow
 * query string cache fu
 * add last-modified date to posts
+* site search
+* ping google on deploy
 
 That is all I have to say at this time.
 

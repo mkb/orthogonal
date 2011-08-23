@@ -42,7 +42,18 @@
       <img height="200" width="200" src="/img/IMG_0251.JPG" alt="[]"/>
       <p>I am Michael Brodhead.  This is my website.  There are
         many others like it, but this one is mine.</p>
-      
+
+      <fieldset class="search">
+        <form method=GET action="http://www.google.com/search">
+          <input type=hidden name=domains value="orthogonal.org">
+          <input type="hidden" name="sitesearch" value="orthogonal.org">
+          <input type="hidden" name=ie value=UTF-8>
+          <input type="hidden" name=oe value=UTF-8>
+          <input class="box" type=text name=q maxlength=255 
+              value="Search">
+          <input type="submit" name=btnG VALUE="Go">
+        </form>
+      </fieldset>      
       <div id="flickr_uber">
         <div id="flickr_images"></div>
         <p>See <a href="http://flickr.com/photos/TheWayOfTheGun">more photos.</a></p>
